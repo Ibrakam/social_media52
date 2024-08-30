@@ -5,10 +5,12 @@ import re
 
 regex = re.compile(r"^[\w\.\+\-]+\@[\w]+\.[a-z]{2,3}$")
 
+
 def mail_checker(email):
     if re.fullmatch(regex, email):
         return True
     return False
+
 
 user_api = APIRouter(prefix="/user", tags=["Пользователи"])
 
@@ -19,6 +21,7 @@ class User(BaseModel):
     phone_number: str
     password: str
     user_city: str | None = None
+
 
 # Получение всех пользователей
 @user_api.get('/all_user')
